@@ -72,6 +72,16 @@ wget -O /root/sysctl-forwarding.sh https://raw.githubusercontent.com/hazemhak/so
 
 #Grab base Sofether Iptables rules
 wget -O /root/softether-iptables.sh https://raw.githubusercontent.com/hazemhak/softethernat/master/softether-iptables.sh; chmod a+x /root/softether-iptables.sh;
+# install monit 
+apt-get install monit
+systemctl enable monit
+systemctl start monit
+systemctl status monit
+wget -O /etc/monit/conf-enabled/openssh-server https://raw.githubusercontent.com/hazemhak/softethernat/master/monit/openssh-server
+wget -O /etc/monit/conf-enabled/cron https://raw.githubusercontent.com/hazemhak/softethernat/master/monit/cron
+wget -O /etc/monit/conf-enabled/dnsmasq https://raw.githubusercontent.com/hazemhak/softethernat/master/monit/dnsmasq
+wget -O /etc/monit/conf-enabled/vpnserver https://raw.githubusercontent.com/hazemhak/softethernat/master/monit/vpnserver
+systemctl restart monit
 
 #Make ethers file for dnsmasq to do static assignments based on Mac Addresses
 touch /etc/ethers
