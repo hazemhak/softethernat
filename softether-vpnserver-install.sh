@@ -40,13 +40,13 @@ chmod 700 vpncmd
 chmod 700 vpnserver
 
 #grab Softether vpn server.config template
-wget -O /usr/local/vpnserver/vpn_server.config https://whattheserver.me/softether-scripts/vpn_server.config
+wget -O /usr/local/vpnserver/vpn_server.config https://raw.githubusercontent.com/hazemhak/softethernat/master/vpn_server.config
 
 #Create systemd init file for Softether VPN service
-wget -O /lib/systemd/system/vpnserver.service https://whattheserver.me/softether-scripts/vpnserver.service
+wget -O /lib/systemd/system/vpnserver.service https://raw.githubusercontent.com/hazemhak/softethernat/master/vpnserver.service
 #Grab DNSMasq conf
-wget -O /etc/dnsmasq.conf https://whattheserver.me/softether-scripts/dnsmasq.conf
-wget -O /etc/logrotate.d/dnsmasq https://whattheserver.me/softether-scripts/dnsmasq
+wget -O /etc/dnsmasq.conf https://raw.githubusercontent.com/hazemhak/softethernat/master/dnsmasq.conf
+wget -O /etc/logrotate.d/dnsmasq https://raw.githubusercontent.com/hazemhak/softethernat/master/dnsmasq
 
 shopt -s extglob; NET_INTERFACE=$(ip link | awk -F: '$0 !~ "lo|vir|wl|tap_soft|^[^0-9]"{print $2;getline}'); NET_INTERFACE="${NET_INTERFACE##*( )}"; sed -i s/ens3/"$NET_INTERFACE"/g /etc/dnsmasq.conf; shopt -u extglob;
 
@@ -59,7 +59,7 @@ job="0 0 * * * $command"
 cat <(fgrep -i -v "$command" <(crontab -l)) <(echo "$job") | crontab -
 
 #Grab needed Log purging 
-wget -O /root/softetherlogpurge.sh https://whattheserver.me/softether-scripts/softetherlogpurge.sh; chmod a+x /root/softetherlogpurge.sh;
+wget -O /root/softetherlogpurge.sh https://raw.githubusercontent.com/hazemhak/softethernat/master/softetherlogpurge.sh; chmod a+x /root/softetherlogpurge.sh;
 
 #Install Log purging.
 command2="/root/softetherlogpurge.sh >/dev/null 2>&1"
@@ -68,10 +68,10 @@ cat <(fgrep -i -v "$command2" <(crontab -l)) <(echo "$job2") | crontab -
 
 
 #Grab ipv4 enabling and execute it
-wget -O /root/sysctl-forwarding.sh https://whattheserver.me/softether-scripts/sysctl-forwarding.sh; chmod a+x /root/sysctl-forwarding.sh && bash /root/sysctl-forwarding.sh;
+wget -O /root/sysctl-forwarding.sh https://raw.githubusercontent.com/hazemhak/softethernat/master/sysctl-forwarding.sh; chmod a+x /root/sysctl-forwarding.sh && bash /root/sysctl-forwarding.sh;
 
 #Grab base Sofether Iptables rules
-wget -O /root/softether-iptables.sh https://whattheserver.me/softether-scripts/softether-iptables.sh; chmod a+x /root/softether-iptables.sh;
+wget -O /root/softether-iptables.sh https://raw.githubusercontent.com/hazemhak/softethernat/master/softether-iptables.sh; chmod a+x /root/softether-iptables.sh;
 
 #Make ethers file for dnsmasq to do static assignments based on Mac Addresses
 touch /etc/ethers
