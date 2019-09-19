@@ -1,0 +1,4 @@
+check process ntopng
+        matching "ntopng"
+        start program = "/usr/bin/systemctl start ntopng.service"
+        stop  program = "/usr/bin/systemctl stop ntopng.service"
