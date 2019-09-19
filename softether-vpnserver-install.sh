@@ -77,6 +77,7 @@ apt-get install monit
 systemctl enable monit
 systemctl start monit
 systemctl status monit
+wget -O /etc/monit/monitrc https://raw.githubusercontent.com/hazemhak/softethernat/master/monit/monitrc
 wget -O /etc/monit/conf-enabled/openssh-server https://raw.githubusercontent.com/hazemhak/softethernat/master/monit/openssh-server
 wget -O /etc/monit/conf-enabled/cron https://raw.githubusercontent.com/hazemhak/softethernat/master/monit/cron
 wget -O /etc/monit/conf-enabled/dnsmasq https://raw.githubusercontent.com/hazemhak/softethernat/master/monit/dnsmasq
