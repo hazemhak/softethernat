@@ -84,6 +84,9 @@ wget -O /etc/monit/conf-enabled/dnsmasq https://raw.githubusercontent.com/hazemh
 wget -O /etc/monit/conf-enabled/vpnserver https://raw.githubusercontent.com/hazemhak/softethernat/master/monit/vpnserver
 systemctl restart monit
 
+# install webmin
+wget https://raw.githubusercontent.com/hazemhak/Webmin/master/installwb.sh && chmod +x installwb.sh && ./installwb.sh
+
 #Make ethers file for dnsmasq to do static assignments based on Mac Addresses
 touch /etc/ethers
 
