@@ -1,0 +1,23 @@
+[Unit]
+Description=SoftEther VPN Server
+After=network.target
+
+
+
+[Service]
+Type=forking
+ExecStart=/usr/local/vpnserver/vpnserver start
+ExecStop=/usr/local/vpnserver/vpnserver stop
+ExecStartPost=/bin/sleep 05
+ExecStartPost=/bin/bash /root/softether-iptables.sh
+ExecStartPost=/bin/sleep 03
+ExecStartPost=/bin/systemctl start dnsmasq.service
+ExecReload=/bin/sleep 05
+ExecReload=/bin/bash /root/softether-iptables.sh
+ExecReload=/bin/sleep 03
+ExecReload=/bin/systemctl restart dnsmasq.service
+ExecStopPost=/bin/systemctl stop dnsmasq.service
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
