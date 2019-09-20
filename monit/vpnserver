@@ -1,4 +1,4 @@
 check process vpnserver
         matching "vpnserver"
-        start program = "/usr/bin/systemctl start vpnserver.service"
-        stop  program = "/usr/bin/systemctl stop vpnserver.service"
+        start program = "/bin/systemctl start vpnserver.service"
+        stop  program = "/bin/systemctl stop vpnserver.service"
