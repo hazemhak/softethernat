@@ -1,4 +1,4 @@
-<p style="text-align: center;"><span style="color: #000000;"><span style="color: #993300;"><strong>Softether VPN server installer script</strong> </span></span></p>
+<h1 style="text-align: center;"><span style="color: #000000;"><span style="color: #993300;"><strong>Softether VPN server installer script</strong> </span></span></h1>
 <p><span style="color: #000000;">version for public use. This should install and configure everything with one command.</span></p>
 <p><span style="color: #000000;">From there you can change the server admin password and add/remove users from the Softether Server Manager GUI as desired.</span></p>
 <p>As the root user run the below command via ssh.</p>
@@ -15,7 +15,10 @@
 <p>Default vpn user is 'test' with password 'softethervpn'</p>
 <p>Default Server administrator password is 'softethervpn'</p>
 <p>To manage the server via Windows Server GUI grab the Server Manager client from <a href="https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.29-9680-rtm/softether-vpnserver_vpnbridge-v4.29-9680-rtm-2019.02.28-windows-x86_x64-intel.exe">https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.29-9680-rtm/softether-vpnserver_vpnbridge-v4.29-9680-rtm-2019.02.28-windows-x86_x64-intel.exe</a></p>
-<p><br />Default user &ldquo;test&rdquo;<br />Default pass &ldquo;softethervpn&rdquo; for user and Server Administrator.</p>
+<p><br />Default user "test"</p>
+<p>Default user pass "softethervpn"</p>
+<p>secret shared :"vpn"</p>
+<p>for &nbsp;Server Administrator pass&nbsp;"softethervpn"</p>
 <p>The iptables should look like the below:</p>
 <p>iptables<span style="color: #333399;"> --list</span></p>
 <p>It also installs 2 cronjobs to automatically purge logs and update adblocking hosts file.</p>
