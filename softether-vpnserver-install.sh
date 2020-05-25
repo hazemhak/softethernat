@@ -54,9 +54,9 @@ shopt -s extglob; NET_INTERFACE=$(ip link | awk -F: '$0 !~ "lo|vir|wl|tap_soft|^
 #wget -O /root/updateHosts.sh https://raw.githubusercontent.com/nomadturk/vpn-adblock/master/updateHosts.sh; chmod a+x /root/updateHosts.sh && bash /root/updateHosts.sh;
 
 #Install adblocking cron.
-#command="/root/updateHosts.sh >/dev/null 2>&1"
-#job="0 0 * * * $command"
-#cat <(fgrep -i -v "$command" <(crontab -l)) <(echo "$job") | crontab -
+command="/root/updateHosts.sh >/dev/null 2>&1"
+job="0 0 * * * $command"
+cat <(fgrep -i -v "$command" <(crontab -l)) <(echo "$job") | crontab -
 
 #Grab needed Log purging 
 wget -O /root/softetherlogpurge.sh https://raw.githubusercontent.com/hazemhak/softethernat/master/softetherlogpurge.sh; chmod a+x /root/softetherlogpurge.sh;
