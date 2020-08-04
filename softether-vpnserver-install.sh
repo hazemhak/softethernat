@@ -24,7 +24,7 @@ iptables -F && iptables -X
 #Grab latest Softether link for Linux x64 from here: http://www.softether-download.com/en.aspx?product=softether
 
 #Use wget to copy it directly onto the server.
-wget https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.34-9745-beta/softether-vpnserver-v4.34-9745-beta-2020.04.05-linux-x64-64bit.tar.gz
+wget https://github.com/SoftEtherVPN/SoftEtherVPN_Stable/releases/download/v4.29-9680-rtm/softether-vpnserver-v4.29-9680-rtm-2019.02.28-linux-x64-64bit.tar.gz
 
 #Extract it. Enter directory and run make and agree to all license agreements:
 tar xvf softether-vpnserver-*.tar.gz
@@ -51,7 +51,7 @@ wget -O /etc/logrotate.d/dnsmasq https://raw.githubusercontent.com/hazemhak/soft
 shopt -s extglob; NET_INTERFACE=$(ip link | awk -F: '$0 !~ "lo|vir|wl|tap_soft|^[^0-9]"{print $2;getline}'); NET_INTERFACE="${NET_INTERFACE##*( )}"; sed -i s/ens3/"$NET_INTERFACE"/g /etc/dnsmasq.conf; shopt -u extglob;
 
 #ad blocking hosts
-#wget -O /root/updateHosts.sh https://raw.githubusercontent.com/nomadturk/vpn-adblock/master/updateHosts.sh; chmod a+x /root/updateHosts.sh && bash /root/updateHosts.sh;
+wget -O /root/updateHosts.sh https://raw.githubusercontent.com/nomadturk/vpn-adblock/master/updateHosts.sh; chmod a+x /root/updateHosts.sh && bash /root/updateHosts.sh;
 
 #Install adblocking cron.
 command="/root/updateHosts.sh >/dev/null 2>&1"
